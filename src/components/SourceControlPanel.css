@@ -1,0 +1,657 @@
+.source-control-panel {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.source-control-panel.dark {
+  --bg-color: #1e1e1e;
+  --text-color: #cccccc;
+  --input-bg: #3c3c3c;
+  --input-border: #3e3e42;
+  --hover-bg: #2a2d2e;
+  --border-color: #3e3e42;
+  --button-bg: #0e639c;
+  --button-hover: #1177bb;
+  --button-disabled: #3c3c3c;
+}
+
+.source-control-panel.light {
+  --bg-color: #ffffff;
+  --text-color: #383a42;
+  --input-bg: #ffffff;
+  --input-border: #d4d4d4;
+  --hover-bg: #e8e8e8;
+  --border-color: #e5e5e5;
+  --button-bg: #0078d4;
+  --button-hover: #005a9e;
+  --button-disabled: #e8e8e8;
+}
+
+.source-control-panel {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+.source-control-header {
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.source-control-header h3 {
+  margin: 0;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.source-control-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 12px;
+}
+
+.commit-section {
+  margin-bottom: 16px;
+}
+
+.commit-message-input {
+  width: 100%;
+  padding: 8px;
+  background-color: var(--input-bg);
+  border: 1px solid var(--input-border);
+  color: var(--text-color);
+  font-size: 13px;
+  font-family: inherit;
+  border-radius: 2px;
+  resize: vertical;
+  outline: none;
+}
+
+.commit-message-input:focus {
+  border-color: var(--button-bg);
+}
+
+.commit-btn {
+  width: 100%;
+  padding: 8px;
+  margin-top: 8px;
+  background-color: var(--button-bg);
+  border: none;
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 500;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.commit-btn:hover:not(:disabled) {
+  background-color: var(--button-hover);
+}
+
+.commit-btn:disabled {
+  background-color: var(--button-disabled);
+  color: var(--text-color);
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.changes-section {
+  margin-bottom: 16px;
+}
+
+.changes-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.changes-count {
+  background-color: var(--input-bg);
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-size: 11px;
+}
+
+.changes-list {
+  margin-top: 8px;
+}
+
+.empty-changes {
+  padding: 20px;
+  text-align: center;
+  color: var(--text-color);
+  opacity: 0.6;
+}
+
+.empty-changes p {
+  margin: 4px 0;
+  font-size: 13px;
+}
+
+.empty-changes .hint {
+  font-size: 11px;
+  font-style: italic;
+}
+
+.git-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.git-action-btn {
+  flex: 1;
+  padding: 8px;
+  background-color: var(--input-bg);
+  border: 1px solid var(--input-border);
+  color: var(--text-color);
+  font-size: 12px;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+}
+
+.git-action-btn:hover {
+  background-color: var(--hover-bg);
+  border-color: var(--button-bg);
+}
+
+.git-action-btn span {
+  font-size: 14px;
+}
+
+/* GitHub Integration Styles */
+.auth-prompt {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.github-icon {
+  font-size: 48px;
+  margin-bottom: 16px;
+}
+
+.auth-prompt h4 {
+  margin: 0 0 8px 0;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.auth-prompt p {
+  margin: 0 0 24px 0;
+  font-size: 13px;
+  opacity: 0.8;
+}
+
+.github-auth-btn {
+  padding: 10px 20px;
+  background-color: #24292e;
+  border: none;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.github-auth-btn:hover {
+  background-color: #2f363d;
+}
+
+.source-control-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.source-control-header .header-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.source-control-header .header-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.sync-badge {
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.sync-badge.enabled {
+  background-color: #28a745;
+  color: #ffffff;
+}
+
+.auto-sync-toggle {
+  padding: 4px 8px;
+  background: transparent;
+  border: 1px solid var(--input-border);
+  color: var(--text-color);
+  font-size: 14px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.auto-sync-toggle:hover {
+  background-color: var(--hover-bg);
+  border-color: var(--button-bg);
+}
+
+.sign-out-btn {
+  padding: 4px 8px;
+  background: transparent;
+  border: none;
+  color: var(--text-color);
+  font-size: 16px;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+}
+
+.sign-out-btn:hover {
+  opacity: 1;
+}
+
+.repo-selector {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+  align-items: center;
+}
+
+.repo-selector label {
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.repo-selector select {
+  flex: 1;
+  padding: 6px 8px;
+  background-color: var(--input-bg);
+  border: 1px solid var(--input-border);
+  color: var(--text-color);
+  font-size: 12px;
+  border-radius: 2px;
+  outline: none;
+}
+
+.repo-selector select:focus {
+  border-color: var(--button-bg);
+}
+
+.refresh-btn {
+  padding: 6px 10px;
+  background-color: var(--input-bg);
+  border: 1px solid var(--input-border);
+  color: var(--text-color);
+  font-size: 14px;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.refresh-btn:hover:not(:disabled) {
+  background-color: var(--hover-bg);
+}
+
+.refresh-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.create-repo-btn {
+  padding: 6px 10px;
+  background-color: var(--button-bg);
+  border: none;
+  color: #ffffff;
+  font-size: 14px;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.create-repo-btn:hover:not(:disabled) {
+  background-color: var(--button-hover);
+}
+
+.create-repo-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.commit-item {
+  padding: 8px;
+  margin-bottom: 4px;
+  background-color: var(--input-bg);
+  border-radius: 2px;
+  font-size: 12px;
+}
+
+.commit-message {
+  font-weight: 500;
+  margin-bottom: 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.commit-meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  opacity: 0.7;
+}
+
+/* Repository List Styles */
+.repo-section {
+  margin-bottom: 16px;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 12px;
+  background-color: var(--input-bg);
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  user-select: none;
+}
+
+.toggle-btn {
+  background: transparent;
+  border: none;
+  color: var(--text-color);
+  font-size: 12px;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 2px;
+  transition: background-color 0.2s;
+}
+
+.toggle-btn:hover {
+  background-color: var(--hover-bg);
+}
+
+.repo-list {
+  padding: 8px;
+}
+
+.repo-list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4px 0 8px 0;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.repo-actions {
+  display: flex;
+  gap: 4px;
+}
+
+.icon-btn {
+  padding: 4px 8px;
+  background-color: var(--input-bg);
+  border: 1px solid var(--input-border);
+  color: var(--text-color);
+  font-size: 12px;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.icon-btn:hover:not(:disabled) {
+  background-color: var(--hover-bg);
+  border-color: var(--button-bg);
+}
+
+.icon-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.repo-items {
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.repo-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px;
+  margin-bottom: 4px;
+  background-color: var(--input-bg);
+  border: 1px solid var(--input-border);
+  border-radius: 2px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.repo-item:hover {
+  background-color: var(--hover-bg);
+  border-color: var(--button-bg);
+}
+
+.repo-item.active {
+  background-color: var(--button-bg);
+  color: #ffffff;
+  border-color: var(--button-bg);
+}
+
+.repo-info {
+  flex: 1;
+}
+
+.repo-name {
+  font-size: 13px;
+  font-weight: 500;
+  margin-bottom: 2px;
+}
+
+.repo-meta {
+  font-size: 11px;
+  opacity: 0.8;
+}
+
+.check-mark {
+  font-size: 16px;
+  color: #ffffff;
+}
+
+.selected-repo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 12px;
+}
+
+.repo-badge {
+  font-size: 12px;
+  font-weight: 500;
+  padding: 4px 8px;
+  background-color: var(--input-bg);
+  border-radius: 4px;
+}
+
+.change-repo-btn {
+  padding: 4px 12px;
+  background-color: var(--button-bg);
+  border: none;
+  color: #ffffff;
+  font-size: 11px;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.change-repo-btn:hover {
+  background-color: var(--button-hover);
+}
+
+/* Branch Management Styles */
+.branch-section {
+  margin-bottom: 16px;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.branch-selector {
+  display: flex;
+  gap: 8px;
+  padding: 8px 12px;
+  align-items: center;
+}
+
+.branch-select {
+  flex: 1;
+  padding: 6px 8px;
+  background-color: var(--input-bg);
+  border: 1px solid var(--input-border);
+  color: var(--text-color);
+  font-size: 12px;
+  border-radius: 2px;
+  outline: none;
+}
+
+.branch-select:focus {
+  border-color: var(--button-bg);
+}
+
+.branch-manager {
+  padding: 12px;
+  background-color: var(--input-bg);
+  border-top: 1px solid var(--border-color);
+}
+
+.branch-config h4 {
+  margin: 0 0 12px 0;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.branch-config-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px;
+  margin-bottom: 8px;
+  background-color: var(--bg-color);
+  border: 1px solid var(--input-border);
+  border-radius: 2px;
+}
+
+.branch-name {
+  font-size: 12px;
+  font-weight: 500;
+  font-family: monospace;
+}
+
+.branch-roles {
+  display: flex;
+  gap: 4px;
+}
+
+.role-btn {
+  padding: 4px 8px;
+  background-color: var(--input-bg);
+  border: 1px solid var(--input-border);
+  color: var(--text-color);
+  font-size: 10px;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.role-btn:hover {
+  background-color: var(--hover-bg);
+}
+
+.role-btn.active {
+  background-color: var(--button-bg);
+  color: #ffffff;
+  border-color: var(--button-bg);
+}
+
+.delete-branch-btn {
+  padding: 4px 8px;
+  background-color: transparent;
+  border: 1px solid #dc3545;
+  color: #dc3545;
+  font-size: 12px;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.delete-branch-btn:hover {
+  background-color: #dc3545;
+  color: #ffffff;
+}
+
+/* AI Push Styles */
+.git-action-btn.ai-push {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: #ffffff;
+  border: none;
+}
+
+.git-action-btn.ai-push:hover {
+  background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+}
+
+.git-action-btn.production {
+  background-color: #28a745;
+  color: #ffffff;
+  border: none;
+}
+
+.git-action-btn.production:hover:not(:disabled) {
+  background-color: #218838;
+}
+
+.git-action-btn.production:disabled {
+  background-color: var(--button-disabled);
+  color: var(--text-color);
+  opacity: 0.5;
+}

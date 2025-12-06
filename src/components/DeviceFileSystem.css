@@ -1,0 +1,241 @@
+.device-filesystem {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: var(--vscode-editor-background);
+  color: var(--vscode-editor-foreground);
+}
+
+.filesystem-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px;
+  background: var(--vscode-sideBar-background);
+  border-bottom: 1px solid var(--vscode-panel-border);
+}
+
+.filesystem-toolbar button,
+.filesystem-toolbar .upload-button {
+  padding: 4px 12px;
+  background: var(--vscode-button-background);
+  color: var(--vscode-button-foreground);
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.filesystem-toolbar button:hover,
+.filesystem-toolbar .upload-button:hover {
+  background: var(--vscode-button-hoverBackground);
+}
+
+.filesystem-toolbar button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.current-path {
+  flex: 1;
+  padding: 4px 8px;
+  background: var(--vscode-input-background);
+  border: 1px solid var(--vscode-input-border);
+  border-radius: 2px;
+  font-family: var(--vscode-font-family);
+  font-size: 12px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.upload-button {
+  display: inline-block;
+  cursor: pointer;
+}
+
+.upload-progress {
+  padding: 8px;
+  background: var(--vscode-editor-background);
+  border-bottom: 1px solid var(--vscode-panel-border);
+}
+
+.progress-bar {
+  width: 100%;
+  height: 20px;
+  background: var(--vscode-input-background);
+  border: 1px solid var(--vscode-input-border);
+  border-radius: 2px;
+  overflow: hidden;
+  margin-bottom: 4px;
+}
+
+.progress-fill {
+  height: 100%;
+  background: var(--vscode-progressBar-background);
+  transition: width 0.3s ease;
+}
+
+.filesystem-content {
+  flex: 1;
+  overflow: auto;
+  padding: 8px;
+}
+
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: var(--vscode-descriptionForeground);
+}
+
+.file-list {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+}
+
+.file-list thead {
+  background: var(--vscode-sideBar-background);
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.file-list th {
+  text-align: left;
+  padding: 8px;
+  border-bottom: 1px solid var(--vscode-panel-border);
+  font-weight: 600;
+}
+
+.file-list tbody tr {
+  cursor: pointer;
+  border-bottom: 1px solid var(--vscode-panel-border);
+}
+
+.file-list tbody tr:hover {
+  background: var(--vscode-list-hoverBackground);
+}
+
+.file-list tbody tr.selected {
+  background: var(--vscode-list-activeSelectionBackground);
+  color: var(--vscode-list-activeSelectionForeground);
+}
+
+.file-list td {
+  padding: 8px;
+}
+
+.file-name {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.file-icon {
+  font-size: 16px;
+}
+
+.permissions {
+  font-family: monospace;
+  font-size: 11px;
+}
+
+.actions {
+  display: flex;
+  gap: 4px;
+}
+
+.action-button {
+  padding: 2px 6px;
+  background: transparent;
+  border: 1px solid var(--vscode-button-border);
+  border-radius: 2px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.action-button:hover {
+  background: var(--vscode-button-hoverBackground);
+}
+
+.action-button.delete:hover {
+  background: var(--vscode-errorForeground);
+  color: white;
+}
+
+.dialog-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.dialog {
+  background: var(--vscode-editor-background);
+  border: 1px solid var(--vscode-panel-border);
+  border-radius: 4px;
+  padding: 20px;
+  min-width: 300px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.dialog h3 {
+  margin: 0 0 16px 0;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.dialog input {
+  width: 100%;
+  padding: 6px 8px;
+  background: var(--vscode-input-background);
+  color: var(--vscode-input-foreground);
+  border: 1px solid var(--vscode-input-border);
+  border-radius: 2px;
+  font-family: var(--vscode-font-family);
+  font-size: 12px;
+  margin-bottom: 16px;
+}
+
+.dialog input:focus {
+  outline: none;
+  border-color: var(--vscode-focusBorder);
+}
+
+.dialog-buttons {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+}
+
+.dialog-buttons button {
+  padding: 6px 16px;
+  background: var(--vscode-button-background);
+  color: var(--vscode-button-foreground);
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.dialog-buttons button:hover {
+  background: var(--vscode-button-hoverBackground);
+}
+
+.dialog-buttons button:last-child {
+  background: var(--vscode-button-secondaryBackground);
+  color: var(--vscode-button-secondaryForeground);
+}
+
+.dialog-buttons button:last-child:hover {
+  background: var(--vscode-button-secondaryHoverBackground);
+}

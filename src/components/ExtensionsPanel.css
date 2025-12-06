@@ -1,0 +1,298 @@
+.extensions-panel {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.extensions-panel.dark {
+  --bg-color: #1e1e1e;
+  --text-color: #cccccc;
+  --text-secondary: #858585;
+  --input-bg: #3c3c3c;
+  --input-border: #3e3e42;
+  --hover-bg: #2a2d2e;
+  --border-color: #3e3e42;
+  --button-bg: #0e639c;
+  --button-hover: #1177bb;
+  --installed-bg: #2a2d2e;
+}
+
+.extensions-panel.light {
+  --bg-color: #ffffff;
+  --text-color: #383a42;
+  --text-secondary: #6c6c6c;
+  --input-bg: #ffffff;
+  --input-border: #d4d4d4;
+  --hover-bg: #e8e8e8;
+  --border-color: #e5e5e5;
+  --button-bg: #0078d4;
+  --button-hover: #005a9e;
+  --installed-bg: #e8e8e8;
+}
+
+.extensions-panel {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+.extensions-header {
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.extensions-header h3 {
+  margin: 0 0 8px 0;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.extensions-tabs {
+  display: flex;
+  gap: 4px;
+}
+
+.extensions-tabs .tab {
+  flex: 1;
+  padding: 6px 12px;
+  background: transparent;
+  border: none;
+  color: var(--text-color);
+  font-size: 12px;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: all 0.2s;
+  opacity: 0.7;
+}
+
+.extensions-tabs .tab:hover {
+  opacity: 1;
+}
+
+.extensions-tabs .tab.active {
+  opacity: 1;
+  border-bottom-color: var(--button-bg);
+}
+
+.extensions-content {
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.extensions-search {
+  padding: 12px;
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  gap: 8px;
+}
+
+.extensions-search input {
+  flex: 1;
+  padding: 6px 8px;
+  background-color: var(--input-bg);
+  border: 1px solid var(--input-border);
+  color: var(--text-color);
+  font-size: 13px;
+  border-radius: 2px;
+  outline: none;
+}
+
+.extensions-search input:focus {
+  border-color: var(--button-bg);
+}
+
+.extensions-search button {
+  padding: 6px 12px;
+  background-color: var(--button-bg);
+  border: none;
+  color: #ffffff;
+  font-size: 14px;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.extensions-search button:hover:not(:disabled) {
+  background-color: var(--button-hover);
+}
+
+.extensions-search button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.extensions-actions {
+  padding: 12px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.upload-btn {
+  display: inline-block;
+  padding: 8px 16px;
+  background-color: var(--input-bg);
+  border: 1px solid var(--input-border);
+  color: var(--text-color);
+  font-size: 12px;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.upload-btn:hover {
+  background-color: var(--hover-bg);
+}
+
+.empty-extensions {
+  padding: 40px 20px;
+  text-align: center;
+  color: var(--text-color);
+  opacity: 0.6;
+}
+
+.empty-extensions p {
+  margin: 4px 0;
+  font-size: 13px;
+}
+
+.empty-extensions .hint {
+  font-size: 11px;
+  font-style: italic;
+}
+
+.loading {
+  padding: 40px 20px;
+  text-align: center;
+  color: var(--text-color);
+  opacity: 0.6;
+}
+
+.extensions-list {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.extension-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 12px;
+  border-bottom: 1px solid var(--border-color);
+  transition: background-color 0.2s;
+}
+
+.extension-item:hover {
+  background-color: var(--hover-bg);
+}
+
+.extension-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.extension-name {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.extension-meta {
+  display: flex;
+  gap: 8px;
+  font-size: 11px;
+  color: var(--text-secondary);
+  margin-bottom: 4px;
+}
+
+.extension-description {
+  font-size: 12px;
+  color: var(--text-secondary);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.extension-actions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.install-btn,
+.uninstall-btn,
+.toggle-btn,
+.installed-badge {
+  padding: 6px 12px;
+  border: none;
+  font-size: 12px;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.install-btn {
+  background-color: var(--button-bg);
+  color: #ffffff;
+}
+
+.install-btn:hover:not(:disabled) {
+  background-color: var(--button-hover);
+}
+
+.install-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.installed-badge {
+  background-color: var(--installed-bg);
+  color: var(--text-color);
+  cursor: default;
+  opacity: 0.7;
+}
+
+.uninstall-btn {
+  background-color: transparent;
+  color: var(--text-color);
+  border: 1px solid var(--input-border);
+  padding: 4px 8px;
+  font-size: 14px;
+}
+
+.uninstall-btn:hover {
+  background-color: #d32f2f;
+  color: #ffffff;
+  border-color: #d32f2f;
+}
+
+.toggle-btn {
+  background-color: transparent;
+  color: var(--text-color);
+  border: 1px solid var(--input-border);
+  padding: 4px 8px;
+  font-size: 14px;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.toggle-btn.enabled {
+  background-color: var(--button-bg);
+  color: #ffffff;
+  border-color: var(--button-bg);
+}
+
+.toggle-btn:hover {
+  opacity: 0.8;
+}

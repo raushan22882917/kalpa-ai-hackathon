@@ -1,0 +1,121 @@
+{
+  "name": "kalpa-ai-editor",
+  "version": "0.1.0",
+  "private": false,
+  "license": "MIT",
+  "type": "module",
+  "main": "electron/main.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "test": "vitest --run",
+    "test:watch": "vitest",
+    "test:ai": "node scripts/test-ai-providers.js",
+    "server": "tsx watch server/index.ts",
+    "server:build": "tsc -p server/tsconfig.json",
+    "start": "concurrently \"npm run server\" \"npm run dev\" --names \"SERVER,CLIENT\" --prefix-colors \"blue,green\"",
+    "verify": "node scripts/verify-setup.js",
+    "setup": "npm install && npm rebuild node-pty && npm run verify",
+    "postinstall": "npm rebuild node-pty",
+    "electron": "cross-env NODE_ENV=development electron .",
+    "electron:dev": "concurrently \"npm run dev\" \"wait-on http://localhost:5173 && npm run electron\"",
+    "electron:build": "npm run build && electron-builder",
+    "electron:build:win": "npm run build && electron-builder --win",
+    "electron:build:mac": "npm run build && electron-builder --mac",
+    "electron:build:linux": "npm run build && electron-builder --linux",
+    "electron:build:all": "npm run build && electron-builder -mwl",
+    "electron:publish": "npm run build && electron-builder --publish always",
+    "clean": "rm -rf dist release node_modules/.cache",
+    "prebuild": "npm run clean && npm install"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.71.0",
+    "@devicefarmer/adbkit": "^3.2.6",
+    "@google/generative-ai": "^0.24.1",
+    "@monaco-editor/react": "^4.6.0",
+    "@types/multer": "^2.0.0",
+    "@types/react-syntax-highlighter": "^15.5.13",
+    "@xterm/addon-fit": "^0.10.0",
+    "@xterm/xterm": "^5.5.0",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0",
+    "firebase": "^12.6.0",
+    "lucide-react": "^0.555.0",
+    "monaco-editor": "^0.45.0",
+    "multer": "^2.0.2",
+    "node-pty": "^1.0.0",
+    "openai": "^6.9.1",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-syntax-highlighter": "^16.1.0",
+    "ws": "^8.16.0"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^6.1.5",
+    "@testing-library/react": "^14.1.2",
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.5",
+    "@types/node": "^24.10.1",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "@types/supertest": "^6.0.3",
+    "@types/ws": "^8.5.10",
+    "@vitejs/plugin-react": "^4.2.1",
+    "@vitest/ui": "^1.1.0",
+    "concurrently": "^8.2.2",
+    "cross-env": "^10.1.0",
+    "electron": "^39.2.4",
+    "electron-builder": "^26.0.12",
+    "fast-check": "^3.15.0",
+    "jsdom": "^23.0.1",
+    "supertest": "^7.1.4",
+    "tsx": "^4.21.0",
+    "typescript": "^5.3.3",
+    "vite": "^5.0.8",
+    "vitest": "^1.1.0",
+    "wait-on": "^9.0.3"
+  },
+  "build": {
+    "appId": "com.vscode-ai-editor.app",
+    "productName": "VS Code AI Editor",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "dist/**/*",
+      "electron/**/*",
+      "server/**/*",
+      "node_modules/**/*",
+      "package.json"
+    ],
+    "mac": {
+      "category": "public.app-category.developer-tools",
+      "target": [
+        "dmg",
+        "zip"
+      ],
+      "icon": "public/logo.png"
+    },
+    "win": {
+      "target": [
+        "nsis",
+        "portable"
+      ],
+      "icon": "public/logo.png"
+    },
+    "linux": {
+      "target": [
+        "AppImage",
+        "deb"
+      ],
+      "category": "Development",
+      "icon": "public/logo.png"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
+    }
+  }
+}

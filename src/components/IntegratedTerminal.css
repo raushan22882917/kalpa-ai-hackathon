@@ -1,0 +1,261 @@
+.integrated-terminal {
+  background-color: #1e1e1e;
+  border: 1px solid #3c3c3c;
+  border-radius: 6px;
+  margin: 12px 0;
+  overflow: hidden;
+  font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+  font-size: 13px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.terminal-header {
+  background-color: #2d2d2d;
+  padding: 8px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #3c3c3c;
+}
+
+.terminal-title {
+  color: #cccccc;
+  font-weight: 600;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.terminal-spinner {
+  color: #4ec9b0;
+  font-size: 16px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.terminal-exit-code {
+  font-size: 11px;
+  padding: 2px 8px;
+  border-radius: 3px;
+  font-weight: 600;
+}
+
+.terminal-exit-code.success {
+  background-color: #1a472a;
+  color: #4ec9b0;
+}
+
+.terminal-exit-code.error {
+  background-color: #5a1d1d;
+  color: #f48771;
+}
+
+.terminal-confirmation {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.terminal-command-preview {
+  background-color: #252526;
+  padding: 12px;
+  border-radius: 4px;
+  border-left: 3px solid #4ec9b0;
+}
+
+.terminal-command-preview code {
+  color: #dcdcaa;
+  font-family: inherit;
+  font-size: 13px;
+}
+
+.terminal-execute-button {
+  background-color: #0e639c;
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 13px;
+  transition: background-color 0.2s;
+  align-self: flex-start;
+}
+
+.terminal-execute-button:hover:not(:disabled) {
+  background-color: #1177bb;
+}
+
+.terminal-execute-button:disabled {
+  background-color: #3c3c3c;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.terminal-output {
+  padding: 12px;
+  max-height: 400px;
+  overflow-y: auto;
+  background-color: #1e1e1e;
+}
+
+.terminal-line {
+  padding: 2px 0;
+  line-height: 1.5;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.terminal-command {
+  color: #4ec9b0;
+  font-weight: 600;
+}
+
+.terminal-stdout {
+  color: #cccccc;
+}
+
+.terminal-error {
+  color: #f48771;
+}
+
+.terminal-cursor {
+  color: #4ec9b0;
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  0%, 50% {
+    opacity: 1;
+  }
+  51%, 100% {
+    opacity: 0;
+  }
+}
+
+.terminal-error-summary {
+  background-color: #5a1d1d;
+  color: #f48771;
+  padding: 12px;
+  border-top: 1px solid #3c3c3c;
+  font-size: 12px;
+}
+
+.terminal-error-summary strong {
+  font-weight: 700;
+}
+
+.terminal-status-running {
+  border-color: #4ec9b0;
+}
+
+.terminal-status-success {
+  border-color: #4ec9b0;
+}
+
+.terminal-status-error {
+  border-color: #f48771;
+}
+
+/* Command Queue Styles */
+.command-queue {
+  margin: 16px 0;
+}
+
+.queue-header {
+  background-color: #2d2d2d;
+  color: #cccccc;
+  padding: 8px 12px;
+  border-radius: 6px 6px 0 0;
+  font-size: 12px;
+  font-weight: 600;
+  border: 1px solid #3c3c3c;
+  border-bottom: none;
+}
+
+.queue-complete {
+  background-color: #1e1e1e;
+  border: 1px solid #3c3c3c;
+  border-top: none;
+  padding: 16px;
+  text-align: center;
+  color: #cccccc;
+  border-radius: 0 0 6px 6px;
+}
+
+.queue-complete p {
+  margin: 0;
+  font-size: 14px;
+}
+
+.queue-summary {
+  background-color: #252526;
+  border: 1px solid #3c3c3c;
+  border-radius: 6px;
+  padding: 12px;
+  margin-top: 12px;
+}
+
+.queue-summary h4 {
+  margin: 0 0 8px 0;
+  color: #cccccc;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.queue-result {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 0;
+  font-size: 12px;
+  color: #cccccc;
+}
+
+.queue-result .success {
+  color: #4ec9b0;
+  font-weight: bold;
+}
+
+.queue-result .error {
+  color: #f48771;
+  font-weight: bold;
+}
+
+.queue-result code {
+  flex: 1;
+  color: #dcdcaa;
+  font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+}
+
+.queue-result .exit-code {
+  color: #858585;
+  font-size: 11px;
+}
+
+/* Scrollbar styling for terminal output */
+.terminal-output::-webkit-scrollbar {
+  width: 8px;
+}
+
+.terminal-output::-webkit-scrollbar-track {
+  background: #1e1e1e;
+}
+
+.terminal-output::-webkit-scrollbar-thumb {
+  background: #3c3c3c;
+  border-radius: 4px;
+}
+
+.terminal-output::-webkit-scrollbar-thumb:hover {
+  background: #4c4c4c;
+}

@@ -1,0 +1,280 @@
+.stack-selector {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.stack-selector-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.stack-selector-header h2 {
+  font-size: 1.75rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: var(--vscode-foreground);
+}
+
+.stack-selector-header p {
+  font-size: 1rem;
+  color: var(--vscode-descriptionForeground);
+}
+
+.stack-levels {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.stack-level-group {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.level-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.level-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.25rem 0.75rem;
+  background: var(--vscode-badge-background);
+  color: var(--vscode-badge-foreground);
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.level-header h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0;
+  color: var(--vscode-foreground);
+}
+
+.stack-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1rem;
+}
+
+.stack-card {
+  background: var(--vscode-editor-background);
+  border: 2px solid var(--vscode-panel-border);
+  border-radius: 8px;
+  padding: 1.25rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.stack-card:hover {
+  border-color: var(--vscode-focusBorder);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+}
+
+.stack-card:focus {
+  outline: 2px solid var(--vscode-focusBorder);
+  outline-offset: 2px;
+}
+
+.stack-card.selected {
+  border-color: var(--vscode-button-background);
+  background: var(--vscode-list-activeSelectionBackground);
+}
+
+.stack-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.stack-card-header h4 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin: 0;
+  color: var(--vscode-foreground);
+}
+
+.selected-indicator {
+  font-size: 1.25rem;
+  color: var(--vscode-button-background);
+  font-weight: bold;
+}
+
+.stack-technologies {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 0.75rem;
+  background: var(--vscode-input-background);
+  border-radius: 4px;
+}
+
+.tech-item {
+  display: flex;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+}
+
+.tech-label {
+  font-weight: 600;
+  color: var(--vscode-descriptionForeground);
+  min-width: 80px;
+}
+
+.tech-value {
+  color: var(--vscode-foreground);
+}
+
+.stack-benefits {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.stack-benefits h5,
+.stack-use-cases h5 {
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin: 0;
+  color: var(--vscode-foreground);
+}
+
+.stack-benefits ul {
+  margin: 0;
+  padding-left: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.stack-benefits li {
+  font-size: 0.875rem;
+  color: var(--vscode-descriptionForeground);
+}
+
+.stack-use-cases {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.use-case-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.use-case-tag {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  background: var(--vscode-badge-background);
+  color: var(--vscode-badge-foreground);
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.stack-selector-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--vscode-panel-border);
+}
+
+.custom-stack-button,
+.confirm-button,
+.back-button {
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: none;
+}
+
+.custom-stack-button {
+  background: var(--vscode-button-secondaryBackground);
+  color: var(--vscode-button-secondaryForeground);
+}
+
+.custom-stack-button:hover {
+  background: var(--vscode-button-secondaryHoverBackground);
+}
+
+.confirm-button {
+  background: var(--vscode-button-background);
+  color: var(--vscode-button-foreground);
+}
+
+.confirm-button:hover:not(:disabled) {
+  background: var(--vscode-button-hoverBackground);
+}
+
+.confirm-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.back-button {
+  background: var(--vscode-button-secondaryBackground);
+  color: var(--vscode-button-secondaryForeground);
+}
+
+.back-button:hover {
+  background: var(--vscode-button-secondaryHoverBackground);
+}
+
+.custom-stack-form {
+  text-align: center;
+  padding: 3rem;
+}
+
+.custom-stack-form h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: var(--vscode-foreground);
+}
+
+.custom-stack-note {
+  font-size: 1rem;
+  color: var(--vscode-descriptionForeground);
+  margin-bottom: 2rem;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .stack-selector {
+    padding: 1rem;
+  }
+
+  .stack-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .stack-selector-actions {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .custom-stack-button,
+  .confirm-button {
+    width: 100%;
+  }
+}

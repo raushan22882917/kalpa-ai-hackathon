@@ -1,0 +1,66 @@
+.sidebar {
+  width: 300px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid var(--border-color);
+  overflow: hidden;
+  background: linear-gradient(90deg, var(--bg-color) 0%, rgba(37, 37, 38, 0.98) 100%);
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.15);
+}
+
+.sidebar.dark {
+  --bg-color: #252526;
+  --border-color: #3e3e42;
+  --text-color: #cccccc;
+}
+
+.sidebar.light {
+  --bg-color: #f3f3f3;
+  --border-color: #e5e5e5;
+  --text-color: #383a42;
+}
+
+.sidebar {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+/* Debug panel styles */
+.debug-panel {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.debug-panel .panel-header {
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.debug-panel .panel-header h3 {
+  margin: 0;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.debug-panel .panel-content {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.debug-panel .empty-panel {
+  text-align: center;
+  color: var(--text-color);
+  opacity: 0.6;
+}
+
+.debug-panel .empty-panel p {
+  margin: 0;
+  font-size: 14px;
+}

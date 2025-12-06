@@ -1,0 +1,206 @@
+.tech-stack-dropdown {
+  position: relative;
+  width: 100%;
+}
+
+.tech-stack-dropdown-trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem;
+  background-color: var(--vscode-input-background);
+  border: 1px solid var(--vscode-input-border);
+  color: var(--vscode-input-foreground);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  font-size: 0.95rem;
+}
+
+.tech-stack-dropdown-trigger:hover {
+  border-color: var(--vscode-focusBorder);
+}
+
+.tech-stack-dropdown-trigger:focus {
+  outline: none;
+  border-color: var(--vscode-focusBorder);
+  box-shadow: 0 0 0 2px rgba(var(--vscode-focusBorder-rgb, 0, 122, 204), 0.2);
+}
+
+.tech-stack-dropdown-value {
+  flex: 1;
+  text-align: left;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.tech-stack-dropdown-arrow {
+  margin-left: 0.5rem;
+  font-size: 0.75rem;
+  transition: transform 0.2s;
+  opacity: 0.7;
+}
+
+.tech-stack-dropdown-arrow.open {
+  transform: rotate(180deg);
+}
+
+.tech-stack-dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  margin-top: 0.25rem;
+  background-color: var(--vscode-dropdown-background);
+  border: 1px solid var(--vscode-dropdown-border);
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+  max-height: 500px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.tech-stack-dropdown-search {
+  padding: 0.75rem;
+  border-bottom: 1px solid var(--vscode-panel-border);
+  background-color: var(--vscode-input-background);
+}
+
+.tech-stack-search-input {
+  width: 100%;
+  padding: 0.5rem;
+  background-color: var(--vscode-input-background);
+  border: 1px solid var(--vscode-input-border);
+  color: var(--vscode-input-foreground);
+  border-radius: 4px;
+  font-size: 0.9rem;
+}
+
+.tech-stack-search-input:focus {
+  outline: none;
+  border-color: var(--vscode-focusBorder);
+}
+
+.tech-stack-dropdown-list {
+  flex: 1;
+  overflow-y: auto;
+  padding: 0.5rem;
+}
+
+.tech-stack-level-group {
+  margin-bottom: 1rem;
+}
+
+.tech-stack-level-group:last-child {
+  margin-bottom: 0;
+}
+
+.tech-stack-level-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  margin-bottom: 0.5rem;
+  background-color: var(--vscode-list-activeSelectionBackground);
+  border-radius: 4px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.tech-stack-level-badge {
+  background-color: var(--vscode-button-background);
+  color: var(--vscode-button-foreground);
+  padding: 0.2rem 0.5rem;
+  border-radius: 3px;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.tech-stack-level-label {
+  flex: 1;
+  color: var(--vscode-editor-foreground);
+}
+
+.tech-stack-option {
+  padding: 0.75rem;
+  margin-bottom: 0.5rem;
+  border: 1px solid var(--vscode-input-border);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s, border-color 0.2s;
+  background-color: var(--vscode-input-background);
+}
+
+.tech-stack-option:hover {
+  background-color: var(--vscode-list-hoverBackground);
+  border-color: var(--vscode-focusBorder);
+}
+
+.tech-stack-option.selected {
+  background-color: var(--vscode-list-activeSelectionBackground);
+  border-color: var(--vscode-focusBorder);
+}
+
+.tech-stack-option-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.tech-stack-option-name {
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--vscode-editor-foreground);
+}
+
+.tech-stack-option-check {
+  color: var(--vscode-testing-iconPassed);
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.tech-stack-option-description {
+  font-size: 0.85rem;
+  color: var(--vscode-descriptionForeground);
+  margin-bottom: 0.5rem;
+  line-height: 1.4;
+}
+
+.tech-stack-option-benefits {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.tech-stack-benefit-tag {
+  display: inline-block;
+  padding: 0.2rem 0.5rem;
+  background-color: var(--vscode-badge-background);
+  color: var(--vscode-badge-foreground);
+  border-radius: 3px;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+/* Scrollbar styling */
+.tech-stack-dropdown-list::-webkit-scrollbar {
+  width: 8px;
+}
+
+.tech-stack-dropdown-list::-webkit-scrollbar-track {
+  background: var(--vscode-scrollbarSlider-background);
+}
+
+.tech-stack-dropdown-list::-webkit-scrollbar-thumb {
+  background: var(--vscode-scrollbarSlider-hoverBackground);
+  border-radius: 4px;
+}
+
+.tech-stack-dropdown-list::-webkit-scrollbar-thumb:hover {
+  background: var(--vscode-scrollbarSlider-activeBackground);
+}
+

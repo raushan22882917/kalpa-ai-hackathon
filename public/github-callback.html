@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GitHub Authentication - Kalpa AI</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+        'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+      background: #1E1E1E;
+      color: #CCCCCC;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .container {
+      text-align: center;
+      max-width: 500px;
+    }
+
+    .icon {
+      font-size: 64px;
+      margin-bottom: 24px;
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        opacity: 1;
+      }
+      50% {
+        opacity: 0.5;
+      }
+    }
+
+    h1 {
+      font-size: 24px;
+      margin-bottom: 16px;
+      color: #FFFFFF;
+    }
+
+    p {
+      font-size: 14px;
+      color: #858585;
+      line-height: 1.6;
+      margin-bottom: 24px;
+    }
+
+    .spinner {
+      width: 40px;
+      height: 40px;
+      border: 3px solid rgba(255, 255, 255, 0.1);
+      border-top-color: #238636;
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+      margin: 0 auto;
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    .error {
+      color: #F44336;
+      background: rgba(244, 67, 54, 0.1);
+      border: 1px solid rgba(244, 67, 54, 0.3);
+      padding: 16px;
+      border-radius: 8px;
+      margin-top: 24px;
+    }
+
+    .success {
+      color: #4CAF50;
+      background: rgba(76, 175, 80, 0.1);
+      border: 1px solid rgba(76, 175, 80, 0.3);
+      padding: 16px;
+      border-radius: 8px;
+      margin-top: 24px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 24px;
+      background: #238636;
+      color: #FFFFFF;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: 500;
+      margin-top: 24px;
+      transition: background 0.2s;
+    }
+
+    .btn:hover {
+      background: #2ea043;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="icon">🔐</div>
+    <h1>Connecting to GitHub</h1>
+    <p>Please wait while we complete the authentication process...</p>
+    <div class="spinner"></div>
+    <div id="message"></div>
+  </div>
+
+  <script>
+    // Extract code from URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const code = urlParams.get('code');
+    const error = urlParams.get('error');
+    const messageEl = document.getElementById('message');
+
+    if (error) {
+      messageEl.innerHTML = `
+        <div class="error">
+          <strong>Authentication Failed</strong><br>
+          ${error === 'access_denied' ? 'You denied access to GitHub.' : 'An error occurred during authentication.'}
+        </div>
+        <a href="/" class="btn">Return to Editor</a>
+      `;
+    } else if (code) {
+      // Exchange code for access token
+      // In a real implementation, this would call your backend
+      // For now, we'll show a message
+      messageEl.innerHTML = `
+        <div class="success">
+          <strong>Authentication Successful!</strong><br>
+          Redirecting you back to the editor...
+        </div>
+      `;
+
+      // Store the code temporarily
+      sessionStorage.setItem('github_auth_code', code);
+
+      // Redirect back to main app after 2 seconds
+      setTimeout(() => {
+        window.location.href = '/';
+      }, 2000);
+    } else {
+      messageEl.innerHTML = `
+        <div class="error">
+          <strong>Invalid Request</strong><br>
+          No authentication code received.
+        </div>
+        <a href="/" class="btn">Return to Editor</a>
+      `;
+    }
+  </script>
+</body>
+</html>

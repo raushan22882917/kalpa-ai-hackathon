@@ -1,0 +1,165 @@
+.install-prompt {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 10000;
+  max-width: 400px;
+  animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(100px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.install-prompt.dark {
+  --bg-color: #252526;
+  --text-color: #cccccc;
+  --text-secondary: #858585;
+  --border-color: #007acc;
+  --button-bg: #0e639c;
+  --button-hover: #1177bb;
+  --dismiss-bg: #3c3c3c;
+  --dismiss-hover: #4e4e4e;
+}
+
+.install-prompt.light {
+  --bg-color: #ffffff;
+  --text-color: #383a42;
+  --text-secondary: #6c6c6c;
+  --border-color: #0078d4;
+  --button-bg: #0078d4;
+  --button-hover: #005a9e;
+  --dismiss-bg: #e8e8e8;
+  --dismiss-hover: #d4d4d4;
+}
+
+.install-prompt-content {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  border: 2px solid var(--border-color);
+  border-radius: 8px;
+  padding: 16px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.install-prompt-icon {
+  font-size: 32px;
+  text-align: center;
+}
+
+.install-prompt-text h3 {
+  margin: 0 0 4px 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-color);
+}
+
+.install-prompt-text p {
+  margin: 0;
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+
+.install-prompt-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.install-btn,
+.dismiss-btn {
+  flex: 1;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.install-btn {
+  background-color: var(--button-bg);
+  color: #ffffff;
+}
+
+.install-btn:hover {
+  background-color: var(--button-hover);
+}
+
+.dismiss-btn {
+  background-color: var(--dismiss-bg);
+  color: var(--text-color);
+}
+
+.dismiss-btn:hover {
+  background-color: var(--dismiss-hover);
+}
+
+/* Install Status (when already installed) */
+.install-status {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 10000;
+}
+
+.install-status.dark {
+  --bg-color: #252526;
+  --text-color: #cccccc;
+  --success-color: #4ec9b0;
+}
+
+.install-status.light {
+  --bg-color: #ffffff;
+  --text-color: #383a42;
+  --success-color: #22863a;
+}
+
+.install-status-content {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  border: 2px solid var(--success-color);
+  border-radius: 8px;
+  padding: 12px 16px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.install-icon {
+  color: var(--success-color);
+  font-size: 18px;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .install-prompt {
+    bottom: 10px;
+    right: 10px;
+    left: 10px;
+    max-width: none;
+  }
+
+  .install-prompt-actions {
+    flex-direction: column;
+  }
+
+  .install-btn,
+  .dismiss-btn {
+    width: 100%;
+  }
+}

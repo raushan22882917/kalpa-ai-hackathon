@@ -1,0 +1,264 @@
+.accounts-panel {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+.accounts-panel.dark {
+  --bg-color: #1e1e1e;
+  --secondary-bg: #252526;
+  --border-color: #3e3e42;
+  --text-color: #cccccc;
+  --hover-bg: #2a2d2e;
+  --button-bg: #0e639c;
+  --button-hover: #1177bb;
+  --text-muted: #858585;
+  --github-bg: #24292e;
+  --google-bg: #4285f4;
+  --email-bg: #007acc;
+}
+
+.accounts-panel.light {
+  --bg-color: #ffffff;
+  --secondary-bg: #f3f3f3;
+  --border-color: #e5e5e5;
+  --text-color: #333333;
+  --hover-bg: #e8e8e8;
+  --button-bg: #0078d4;
+  --button-hover: #106ebe;
+  --text-muted: #666666;
+  --github-bg: #24292e;
+  --google-bg: #4285f4;
+  --email-bg: #007acc;
+}
+
+.accounts-header {
+  padding: 20px 24px;
+  border-bottom: 1px solid var(--border-color);
+  background-color: var(--secondary-bg);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.accounts-header h2 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text-color);
+}
+
+.accounts-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 24px;
+}
+
+.accounts-loading,
+.accounts-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+  text-align: center;
+  color: var(--text-muted);
+}
+
+.accounts-empty svg {
+  opacity: 0.5;
+  margin-bottom: 16px;
+}
+
+.accounts-empty h3 {
+  margin: 16px 0 8px;
+  font-size: 18px;
+  color: var(--text-color);
+}
+
+.accounts-empty p {
+  margin: 8px 0 24px;
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+.sign-in-options {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  max-width: 300px;
+}
+
+.sign-in-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  color: white;
+}
+
+.sign-in-btn.github {
+  background-color: var(--github-bg);
+}
+
+.sign-in-btn.github:hover {
+  background-color: #2f363d;
+}
+
+.sign-in-btn.google {
+  background-color: var(--google-bg);
+}
+
+.sign-in-btn.google:hover {
+  background-color: #357ae8;
+}
+
+.sign-in-btn.email {
+  background-color: var(--email-bg);
+}
+
+.sign-in-btn.email:hover {
+  background-color: #0086d1;
+}
+
+.accounts-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.account-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+  background-color: var(--secondary-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  transition: all 0.2s;
+}
+
+.account-item:hover {
+  background-color: var(--hover-bg);
+}
+
+.account-item.active {
+  border-color: var(--button-bg);
+}
+
+.account-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: var(--bg-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.account-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.account-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.account-name {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-color);
+  margin-bottom: 4px;
+}
+
+.account-email {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-bottom: 6px;
+}
+
+.account-provider {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: var(--text-muted);
+  text-transform: capitalize;
+}
+
+.account-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.active-badge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  background-color: var(--button-bg);
+  border-radius: 12px;
+  font-size: 11px;
+  font-weight: 500;
+  color: white;
+}
+
+.sign-out-btn {
+  padding: 8px;
+  background: none;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  color: var(--text-color);
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sign-out-btn:hover {
+  background-color: var(--hover-bg);
+  border-color: var(--text-muted);
+}
+
+.accounts-footer {
+  margin-top: 32px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border-color);
+}
+
+.accounts-info h4 {
+  margin: 0 0 12px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-color);
+}
+
+.accounts-info ul {
+  margin: 0;
+  padding-left: 20px;
+  color: var(--text-muted);
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.accounts-info li {
+  margin-bottom: 4px;
+}
+

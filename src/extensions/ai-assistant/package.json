@@ -1,0 +1,83 @@
+{
+  "name": "ai-assistant",
+  "displayName": "AI Assistant",
+  "description": "AI-powered code assistance for Monaco Editor",
+  "version": "0.1.0",
+  "publisher": "kalpa-ai-editor",
+  "engines": {
+    "monaco": "^0.45.0"
+  },
+  "categories": [
+    "Programming Languages",
+    "Machine Learning"
+  ],
+  "activationEvents": [
+    "onLanguage:javascript",
+    "onLanguage:typescript",
+    "onLanguage:python",
+    "onLanguage:java",
+    "onLanguage:csharp",
+    "onLanguage:go",
+    "onLanguage:rust",
+    "onCommand:ai.explain",
+    "onCommand:ai.fix",
+    "onCommand:ai.document"
+  ],
+  "main": "./extension.ts",
+  "contributes": {
+    "commands": [
+      {
+        "command": "ai.explain",
+        "title": "AI: Explain Code"
+      },
+      {
+        "command": "ai.fix",
+        "title": "AI: Fix Code"
+      },
+      {
+        "command": "ai.document",
+        "title": "AI: Generate Documentation"
+      },
+      {
+        "command": "ai.openPanel",
+        "title": "AI: Open AI Panel"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "command": "ai.explain",
+          "group": "ai@1"
+        },
+        {
+          "command": "ai.fix",
+          "group": "ai@2"
+        },
+        {
+          "command": "ai.document",
+          "group": "ai@3"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "AI Assistant",
+      "properties": {
+        "aiAssistant.backendUrl": {
+          "type": "string",
+          "default": "http://localhost:3000",
+          "description": "AI Backend URL"
+        },
+        "aiAssistant.apiKey": {
+          "type": "string",
+          "default": "",
+          "description": "API Key for AI service"
+        },
+        "aiAssistant.timeout": {
+          "type": "number",
+          "default": 10000,
+          "description": "Request timeout in milliseconds"
+        }
+      }
+    }
+  }
+}

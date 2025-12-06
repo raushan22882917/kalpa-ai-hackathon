@@ -1,0 +1,129 @@
+.device-terminal {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background-color: #1e1e1e;
+  border: 1px solid #3c3c3c;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.device-terminal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 12px;
+  background-color: #2d2d2d;
+  border-bottom: 1px solid #3c3c3c;
+}
+
+.device-terminal-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #cccccc;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.device-terminal-icon {
+  font-family: monospace;
+  font-size: 16px;
+  color: #4ec9b0;
+}
+
+.device-terminal-executing {
+  margin-left: 12px;
+  padding: 2px 8px;
+  background-color: #3c3c3c;
+  border-radius: 3px;
+  font-size: 11px;
+  color: #4ec9b0;
+  font-family: monospace;
+}
+
+.device-terminal-actions {
+  display: flex;
+  gap: 6px;
+}
+
+.device-terminal-button {
+  padding: 4px 10px;
+  background-color: #3c3c3c;
+  color: #cccccc;
+  border: 1px solid #555555;
+  border-radius: 3px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.device-terminal-button:hover:not(:disabled) {
+  background-color: #505050;
+  border-color: #666666;
+}
+
+.device-terminal-button:active:not(:disabled) {
+  background-color: #2d2d2d;
+}
+
+.device-terminal-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.device-terminal-interrupt {
+  background-color: #c5534c;
+  border-color: #c5534c;
+  color: #ffffff;
+}
+
+.device-terminal-interrupt:hover {
+  background-color: #d16969;
+  border-color: #d16969;
+}
+
+.device-terminal-close {
+  padding: 4px 8px;
+  font-size: 18px;
+  line-height: 1;
+  font-weight: bold;
+}
+
+.device-terminal-container {
+  flex: 1;
+  padding: 8px;
+  overflow: hidden;
+}
+
+/* Override xterm.js styles for better integration */
+.device-terminal-container .xterm {
+  height: 100%;
+  padding: 0;
+}
+
+.device-terminal-container .xterm-viewport {
+  overflow-y: auto;
+}
+
+.device-terminal-container .xterm-screen {
+  height: 100%;
+}
+
+/* Scrollbar styling */
+.device-terminal-container .xterm-viewport::-webkit-scrollbar {
+  width: 10px;
+}
+
+.device-terminal-container .xterm-viewport::-webkit-scrollbar-track {
+  background: #1e1e1e;
+}
+
+.device-terminal-container .xterm-viewport::-webkit-scrollbar-thumb {
+  background: #424242;
+  border-radius: 5px;
+}
+
+.device-terminal-container .xterm-viewport::-webkit-scrollbar-thumb:hover {
+  background: #4e4e4e;
+}

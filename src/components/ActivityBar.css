@@ -1,0 +1,109 @@
+.activity-bar {
+  width: 48px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-right: 1px solid var(--border-color);
+}
+
+.activity-bar.dark {
+  --bg-color: #333333;
+  --hover-bg: #2a2d2e;
+  --active-bg: #1e1e1e;
+  --border-color: #3e3e42;
+  --active-border: #007acc;
+  --text-color: #cccccc;
+}
+
+.activity-bar.light {
+  --bg-color: #2c2c2c;
+  --hover-bg: #3e3e42;
+  --active-bg: #1e1e1e;
+  --border-color: #e5e5e5;
+  --active-border: #0078d4;
+  --text-color: #ffffff;
+}
+
+.activity-bar {
+  background-color: var(--bg-color);
+}
+
+.activity-bar-items {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+}
+
+.activity-bar-bottom {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  margin-top: auto;
+}
+
+.activity-bar-item {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  border-left: 2px solid transparent;
+  cursor: pointer;
+  color: var(--text-color);
+  transition: all 0.15s ease;
+  position: relative;
+  border-radius: 0 4px 4px 0;
+}
+
+.activity-bar-item:hover {
+  background-color: var(--hover-bg);
+}
+
+.activity-bar-item.active {
+  background-color: var(--active-bg);
+  border-left-color: var(--active-border);
+  box-shadow: inset 0 0 10px rgba(0, 122, 204, 0.2);
+}
+
+.activity-bar-item.active::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background-color: var(--active-border);
+}
+
+.activity-icon {
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  stroke-width: 2;
+  color: var(--text-color);
+}
+
+.activity-bar-item.active .activity-icon {
+  color: var(--active-border);
+}
+
+/* Tooltip on hover */
+.activity-bar-item:hover::after {
+  content: attr(title);
+  position: absolute;
+  left: 52px;
+  background-color: #1e1e1e;
+  color: #cccccc;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  white-space: nowrap;
+  z-index: 1000;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  pointer-events: none;
+}

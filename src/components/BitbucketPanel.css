@@ -1,0 +1,261 @@
+.bitbucket-panel {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: var(--vscode-editor-background);
+  color: var(--vscode-editor-foreground);
+  overflow: hidden;
+}
+
+.bitbucket-header {
+  padding: 16px;
+  border-bottom: 1px solid var(--vscode-panel-border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.bitbucket-header h2 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.bitbucket-config {
+  padding: 24px;
+  max-width: 500px;
+}
+
+.bitbucket-config h2 {
+  margin: 0 0 8px 0;
+}
+
+.help-text {
+  margin: 0 0 24px 0;
+  opacity: 0.7;
+  font-size: 13px;
+}
+
+.form-group {
+  margin-bottom: 16px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 8px 12px;
+  background: var(--vscode-input-background);
+  color: var(--vscode-input-foreground);
+  border: 1px solid var(--vscode-input-border);
+  border-radius: 4px;
+  font-size: 13px;
+}
+
+.form-group small {
+  display: block;
+  margin-top: 4px;
+  font-size: 11px;
+  opacity: 0.7;
+}
+
+.form-group small a {
+  color: var(--vscode-textLink-foreground);
+  text-decoration: none;
+}
+
+.form-group small a:hover {
+  text-decoration: underline;
+}
+
+.button-group {
+  display: flex;
+  gap: 8px;
+  margin-top: 24px;
+}
+
+.bitbucket-content {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+.repo-list {
+  width: 300px;
+  border-right: 1px solid var(--vscode-panel-border);
+  overflow-y: auto;
+  padding: 12px;
+}
+
+.repo-list h3 {
+  margin: 0 0 12px 0;
+  font-size: 13px;
+  font-weight: 600;
+  opacity: 0.7;
+}
+
+.repo-item {
+  padding: 12px;
+  margin-bottom: 8px;
+  background: var(--vscode-textCodeBlock-background);
+  border: 1px solid var(--vscode-panel-border);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.repo-item:hover {
+  background: var(--vscode-list-hoverBackground);
+}
+
+.repo-item.selected {
+  background: var(--vscode-list-activeSelectionBackground);
+  border-color: var(--vscode-focusBorder);
+}
+
+.repo-name {
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.repo-meta {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 8px;
+  font-size: 11px;
+}
+
+.badge {
+  padding: 2px 6px;
+  background: var(--vscode-badge-background);
+  color: var(--vscode-badge-foreground);
+  border-radius: 10px;
+  font-size: 10px;
+}
+
+.language {
+  opacity: 0.7;
+}
+
+.repo-details {
+  flex: 1;
+  padding: 16px;
+  overflow-y: auto;
+}
+
+.repo-details h3 {
+  margin: 0 0 8px 0;
+  font-size: 18px;
+}
+
+.repo-details p {
+  margin: 0 0 16px 0;
+  opacity: 0.8;
+}
+
+.repo-info {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 24px;
+  padding: 12px;
+  background: var(--vscode-textCodeBlock-background);
+  border-radius: 4px;
+}
+
+.info-item {
+  font-size: 13px;
+}
+
+.info-item strong {
+  margin-right: 8px;
+}
+
+.pull-requests h4 {
+  margin: 0 0 12px 0;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.pr-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.pr-item {
+  padding: 12px;
+  background: var(--vscode-textCodeBlock-background);
+  border: 1px solid var(--vscode-panel-border);
+  border-radius: 4px;
+}
+
+.pr-title {
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.pr-meta {
+  display: flex;
+  gap: 12px;
+  font-size: 11px;
+  opacity: 0.7;
+  margin-bottom: 8px;
+}
+
+.loading {
+  padding: 16px;
+  text-align: center;
+  opacity: 0.7;
+}
+
+.empty-state {
+  padding: 24px;
+  text-align: center;
+  opacity: 0.5;
+}
+
+.btn-primary,
+.btn-secondary,
+.btn-small,
+.btn-icon {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 4px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.btn-primary {
+  background: var(--vscode-button-background);
+  color: var(--vscode-button-foreground);
+}
+
+.btn-secondary {
+  background: var(--vscode-button-secondaryBackground);
+  color: var(--vscode-button-secondaryForeground);
+}
+
+.btn-small {
+  padding: 4px 8px;
+  font-size: 11px;
+}
+
+.btn-icon {
+  background: transparent;
+  padding: 4px 8px;
+}
+
+.btn-primary:hover,
+.btn-secondary:hover,
+.btn-small:hover,
+.btn-icon:hover {
+  opacity: 0.9;
+}
